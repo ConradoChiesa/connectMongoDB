@@ -13,12 +13,12 @@ public class UserController {
     private UserService userService;
 
     @PostMapping(path="/add")
-    public @ResponseBody String addNewUser (@RequestParam String name,
+    public @ResponseBody String addNewUser (@RequestParam String firstName,
                                             @RequestParam String lastName,
                                             @RequestParam String email) {
 
 
-        userService.addUser(name, lastName, email);
+        userService.addUser(firstName, lastName, email);
         return "Saved";
     }
 
