@@ -1,6 +1,16 @@
 # connectMongoDB
 
-Basado en Spring Boot se realizo un servicio REST para CRUD de usuarios y mensajes. Los endpoints se detallan a continuación
+Basado en Spring Boot se realizo un servicio REST para CRUD de usuarios y mensajes.
+
+Java Version 1.8
+
+Maven Version 3.6.0
+
+Running service on cmd:
+java -jar ~/user-backup/target/user-backup-0.0.1-SNAPSHOT.jar
+
+Running service on IDE:
+open del project y 'RUN' UserBackupApplication
 
 # EXAMPLE MESSAGES ENDPOINTS #
 # POST
