@@ -7,7 +7,7 @@ Java Version 1.8
 Maven Version 3.6.0
 
 Running service on cmd:
-java -jar ~/user-backup/target/user-backup-0.0.1-SNAPSHOT.jar
+java -jar ~/user-backup/user-backup-0.0.1-SNAPSHOT.jar
 
 Running service on IDE:
 open del project y 'RUN' UserBackupApplication
