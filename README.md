@@ -31,13 +31,16 @@ http://localhost:8080/user/all
 
 # PUT
 @params firstName, lastName, phoneNumber, email, id
+
 http://localhost:8080/user/update?firstName=Conry&lastName=Chiesa&phoneNumber=1546&email=c@c.com&id=5fad9c711964221d43897c69
 
 # DELETE
 @params id
 
 - Borrar Usuario por id
+
 http://localhost:8080/user/delete?id=5fada7113899620110d8dd0b
 
 - Borrar todos los usuarios
+
 http://localhost:8080/user/deleteAllUsers
