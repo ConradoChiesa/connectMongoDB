@@ -20,12 +20,12 @@ public class UserService {
         return null;
     }
 
-    public User addUser(String name, String lastName, String email) {
+    public User addUser(User u) {
         User user = new User();
-        user.setFirstName(name);
-        user.setLastName(lastName);
-        user.setEmail(email);
-        return userRepository.save(user);
+        user.setFirstName(u.getFirstName());
+        user.setLastName(u.getLastName());
+        user.setEmail(u.getEmail());
+        return userRepository.save(u);
 
     }
 
