@@ -21,10 +21,12 @@ public class UserService {
     }
 
     public User addUser(User u) {
+/*
         User user = new User();
         user.setFirstName(u.getFirstName());
         user.setLastName(u.getLastName());
         user.setEmail(u.getEmail());
+*/
         return userRepository.save(u);
 
     }
@@ -33,23 +35,23 @@ public class UserService {
         return userRepository.findAll() ;
     }
 
-    public User updateUser(String firstName, String lastName, String phoneNumber, String email, String id) {
-        User user = new User();
-        user.setId(id);
-        user.setFirstName(firstName);
-        user.setLastName(lastName);
-        user.setPhoneNumber(phoneNumber);
-        user.setEmail(email);
+    public User updateUser(User user) {
+//        User user = new User();
+//        user.setId(id);
+//        user.setFirstName(firstName);
+//        user.setLastName(lastName);
+//        user.setPhoneNumber(phoneNumber);
+//        user.setEmail(email);
         return userRepository.save(user);
     }
 
 
     public void deleteById(String id) {
-        try {
+//        try {
             userRepository.deleteById(id);
-        } catch (Exception e) {
-            throw e;
-        }
+//        } catch (Exception e) {
+//            throw e;
+//        }
     }
 
     public void deleteAllUsers() {

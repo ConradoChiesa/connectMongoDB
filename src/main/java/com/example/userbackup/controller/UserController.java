@@ -11,39 +11,23 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-/*
-    @PostMapping(path="/add")
-    public @ResponseBody String addNewUser (@RequestParam String firstName,
-                                            @RequestParam String lastName,
-                                            @RequestParam String email) {
-        userService.addUser(firstName, lastName, email);
-        return "Saved";
-    }
-    */
+
     @PostMapping(consumes = "application/json", produces = "application/json")
-    public void addNewUser (@RequestBody User user) {
-        userService.addUser(user);
+    public @ResponseBody User addNewUser (@RequestBody User user) {
+        return userService.addUser(user);
     }
 
-    @GetMapping(path="/all")
+    @GetMapping
     public @ResponseBody Iterable<User> getAllUsers() { return userService.findAll(); }
 
-    @PutMapping (path="/{id}")
-    public void updateUser(@RequestParam String firstName,
-                                           @RequestParam String lastName,
-                                           @RequestParam String phoneNumber,
-                                           @RequestParam String email,
-                                           @RequestParam String id) {
-        userService.updateUser(firstName, lastName, phoneNumber, email, id);
+    @PutMapping (path="/{id}", consumes = "application/json", produces = "application/json")
+    public @ResponseBody User updateUser(@RequestBody User user) {
+        return userService.updateUser(user);
     }
 
-    @DeleteMapping(path="/{id}")
-    public void deleteById(@PathVariable String id) {
+    @DeleteMapping(path= "/{id}")
+    public void delete_by_id(@PathVariable String id) {
         userService.deleteById(id);
     }
 
-    @DeleteMapping("/deleteAllUsers")
-    public void deleteAllUsers() {
-        userService.deleteAllUsers();
-    }
 }
