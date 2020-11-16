@@ -6,51 +6,73 @@ Java Version 1.8
 
 Maven Version 3.6.0
 
-Running service on cmd:
-java -jar ~/user-backup/user-backup-0.0.1-SNAPSHOT.jar
-
 Running service on IDE:
 open del project y 'RUN' UserBackupApplication
 
 # EXAMPLE MESSAGES ENDPOINTS #
 # POST
-@params title, body
 
-http://localhost:8080/message/add?title=Titulo&body=Mensaje
+@RequestBody Json
+http://localhost:8080/message/
+
+example:
+    {
+        "title": "Titulo",
+        "body": "Mensaje nuevo"
+    }
 
 # GET
-http://localhost:8080/message/all
+http://localhost:8080/message/
 
 # PUT 
-@params title, body, id
+@RequestBody JSON
+http://localhost:8080/message/
 
-http://localhost:8080/message/update?title=Borrar&body=Segundo mensaje cambiado again&id=5facac2b626d612f45a18a6e
-
+example:
+    {
+        "id": "5fac8e3869f24f5aca44eb95",
+        "title": "Title",
+        "body": "Message"
+    }
+    
 # DELETE
 @Params id
-
-http://localhost:8080/message/delete?id=5fad82511027974543275de7
+http://localhost:8080/message/{id} //Replace {id} with id of the message that you want to delete
 
 # EXAMPLE USER ENDPOINTS
 
 # POST
-http://localhost:8080/user/add?firstName=Conrado5&lastName=Chiesa&email=c@c.com
+@RequestBody JSON
+http://localhost:8080/user/
+
+Example:
+    {
+       "firstName": "Nombre",
+        "lastName": "Apellido",
+        "email": "a@a.com",
+        "phoneNumber": "7450"
+    }
 
 # GET
-http://localhost:8080/user/all
+http://localhost:8080/user/
 
 # PUT
-@params firstName, lastName, phoneNumber, email, id
+@RequestBody JSON
+http://localhost:8080/user/
 
-http://localhost:8080/user/update?firstName=Conry&lastName=Chiesa&phoneNumber=1546&email=c@c.com&id=5fad9c711964221d43897c69
-
+Example:
+    {
+        "firstName": "Nombre",
+        "lastName": "Apellido",
+        "phoneNumber": "7450",
+        "email": "a@a.com",
+        "id": "5fb28fb316420d1b6a0d95c1"
+    }
+    
 # DELETE
 @params id
 
 - Borrar Usuario por id
 
-http://localhost:8080/user/delete?id=5fada7113899620110d8dd0b
+http://localhost:8080/user/{id} // Replace {id} with the id of the user that you want to delete
 
-- Borrar todos los usuarios
-
-http://localhost:8080/user/deleteAllUsers
