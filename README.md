@@ -6,6 +6,8 @@ Java Version 1.8
 
 Maven Version 3.6.0
 
+MongoDB Version 4.4.1
+
 Running service on cmd:
 java -jar ~/user-backup/user-backup-0.0.1-SNAPSHOT.jar
 
