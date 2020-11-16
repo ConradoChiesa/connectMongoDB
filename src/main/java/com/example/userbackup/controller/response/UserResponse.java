@@ -1,6 +1,6 @@
 package com.example.userbackup.controller.response;
 
-import org.springframework.web.bind.annotation.RequestParam;
+import com.example.userbackup.entity.User;
 
 public class UserResponse {
 
@@ -10,12 +10,12 @@ public class UserResponse {
     private String email;
     private String id;
 
-    public UserResponse(String firstName, String lastName, String phoneNumber, String email, String id) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
-        this.id = id;
+    public UserResponse(User user) {
+        this.firstName = user.getFirstName();
+        this.lastName = user.getLastName();
+        this.phoneNumber = user.getPhoneNumber();
+        this.email = user.getEmail();
+        this.id = user.getId();
     }
 
     public String getFirstName() {

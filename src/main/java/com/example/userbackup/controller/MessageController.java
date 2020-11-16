@@ -13,29 +13,21 @@ public class MessageController {
     @Autowired
     private MessageService messageService;
 
-    @PostMapping(path = "/add")
-    @ResponseBody
-    public MessageResponse addNewMessage(
-            @RequestParam String title,
-            @RequestParam String body) {
-        Message message = messageService.addNewMessage(title, body);
-        return new MessageResponse(message);
+    @PostMapping(consumes = "application/json", produces = "application/json")
+    public @ResponseBody MessageResponse addNewMessage(@RequestBody Message message) {
+        return messageService.addNewMessage(message);
     }
 
-    @GetMapping(path="/all")
+    @GetMapping
     public @ResponseBody Iterable<Message> getAllMessage() { return messageService.findAll(); }
 
-    @PutMapping(path="/{id}")
-    public MessageResponse updateMessage(
-            @RequestParam String title,
-            @RequestParam String body,
-            @RequestParam String id) {
-        Message message = messageService.updateMessage(title, body, id);
-        return new MessageResponse(message);
+    @PutMapping(path = "/{id}", consumes = "application/json", produces = "application/json")
+    public @ResponseBody MessageResponse updateMessage(@RequestBody Message message) {
+        return messageService.updateMessage(message);
     }
 
     @DeleteMapping(path = "/{id}")
-    public void deleteById(String id) {
+    public void deleteById(@PathVariable String id) {
         messageService.deleteById(id);
     }
 }

@@ -1,5 +1,6 @@
 package com.example.userbackup.service;
 
+import com.example.userbackup.controller.response.UserResponse;
 import com.example.userbackup.entity.User;
 import com.example.userbackup.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,49 +17,28 @@ public class UserService {
     public Optional<User> getById(String id){
         return userRepository.findById(id);
     }
-    public User getByFirstName() {
+
+    public UserResponse getByFirstName() {
         return null;
     }
 
-    public User addUser(User u) {
-/*
-        User user = new User();
-        user.setFirstName(u.getFirstName());
-        user.setLastName(u.getLastName());
-        user.setEmail(u.getEmail());
-*/
-        return userRepository.save(u);
-
+    public UserResponse addUser(User user) {
+        User userResponse = userRepository.save(user);
+        return new UserResponse(userResponse);
     }
 
     public Iterable<User> findAll() {
         return userRepository.findAll() ;
     }
 
-    public User updateUser(User user) {
-//        User user = new User();
-//        user.setId(id);
-//        user.setFirstName(firstName);
-//        user.setLastName(lastName);
-//        user.setPhoneNumber(phoneNumber);
-//        user.setEmail(email);
-        return userRepository.save(user);
+    public UserResponse updateUser(User user) {
+        User UserResponse = userRepository.save(user);
+        return new UserResponse(UserResponse);
     }
 
 
     public void deleteById(String id) {
-//        try {
-            userRepository.deleteById(id);
-//        } catch (Exception e) {
-//            throw e;
-//        }
+        userRepository.deleteById(id);
     }
 
-    public void deleteAllUsers() {
-        try {
-            userRepository.deleteAll();
-        } catch (Exception e) {
-            throw e;
-        }
-    }
 }

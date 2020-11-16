@@ -1,5 +1,6 @@
 package com.example.userbackup.controller;
 
+import com.example.userbackup.controller.response.UserResponse;
 import com.example.userbackup.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,15 +14,15 @@ public class UserController {
     private UserService userService;
 
     @PostMapping(consumes = "application/json", produces = "application/json")
-    public @ResponseBody User addNewUser (@RequestBody User user) {
+    public @ResponseBody UserResponse addNewUser (@RequestBody User user) {
         return userService.addUser(user);
     }
 
     @GetMapping
     public @ResponseBody Iterable<User> getAllUsers() { return userService.findAll(); }
 
-    @PutMapping (path="/{id}", consumes = "application/json", produces = "application/json")
-    public @ResponseBody User updateUser(@RequestBody User user) {
+    @PutMapping (consumes = "application/json", produces = "application/json")
+    public @ResponseBody UserResponse updateUser(@RequestBody User user) {
         return userService.updateUser(user);
     }
 
